@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Poster Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1e5f92;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 4rem;
+            width: 100%;
+        }
+
+        .sidebar {
+            background-color: #34495e;
+            color: white;
+            width: 220px;
+            padding: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+        }
+
+        .job-listings {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: calc(100% - 220px);
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: #650e05;
+        }
+
+        .company-card {
+            display: flex;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+
+        .company-card:hover {
+            transform: scale(1.05);
+        }
+
+        .company-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .company-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .company-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        .company-description {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .company-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .company-button:hover {
+            background-color: #2980b9;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {% include 'candidate/navbar.html' %}
+        <div class="content">
+            <h2>Company Details</h2>
+            <div class="job-listings">
+                {% for job in jobs %}
+                <div class="company-card">
+                    <div class="company-info">
+                        <div class="company-details">
+                            <div class="company-name">{{ job.compnayName }}</div>
+                            <div class="company-description">{{ job.companyDescription }}</div>
+                        </div>
+                    </div>
+                    <a href="https://www.{{ job.compnayName|lower }}.com" class="company-button">Visit Website</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
