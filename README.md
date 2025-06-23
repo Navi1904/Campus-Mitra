@@ -1,7 +1,7 @@
 
 # CAMPUS MITRA 🤝🎓
 # Overview
-I successfully developed the Campus Mitra application using pyhton, Django and SQLlite. This powerful tool empowers students to discover and apply for job opportunities from campus companies, while enabling those companies to post openings with effective user access control.
+I successfully developed the Campus Mitra is is a Full-Stack application using pyhton, Django and SQLlite. This powerful tool empowers students to discover and apply for job opportunities from campus companies, while enabling those companies to post openings with effective user access control.
 ## 🛠 Technology Used
 - Frontend: HTML, CSS, Javascript 
 - Backend: Django
